@@ -1,0 +1,330 @@
+
+
+<%-include('./partials/header.ejs')  %>
+<body>
+    <header>
+        <div class="side-nav">
+            <div class="logo">
+                <div class="ems-logo">
+                    <img src="/images/Group 3.png" alt="">
+                </div>
+            </div>
+            <div class="nav-links">
+                <ul>
+                    <a href="/"><li><i class="bi bi-house-fill"></i> Home</li></a>
+                    <a href="/portal"><li><i class="bi bi-person-fill"></i> Portal</li></a>
+                    <a href="#" class="desktop" data-bs-toggle="modal" data-bs-target="#issues"><li><i class="bi bi-file-earmark-medical"></i> Submit Issue</li></a>
+                    <a href="#" class="desktop"><li><i class="bi bi-info-circle"></i> Help Center</li></a>
+                    <a href="#" class="mobile"><li><i class="bi bi-linkedin"></i> Linked in</li></a>
+                    <a href="#" class="mobile"><li><i class="bi bi-facebook"></i> Facebook</li></a>
+                    <a href="#" class="mobile"><li><i class="bi bi-instagram"></i> Instaram</li></a>
+                </ul>           
+            </div>           
+            <div class="contacts">
+                <ul>
+                    <li><i class="bi bi-envelope-fill"></i> info@company.com</li>
+                    <li><i class="bi bi-phone-fill"></i> 0712345678</li>
+                    <li>Copyright &copy; EMS 2023</li>
+                </ul>
+            </div>
+        </div>
+        <div class="toggler">
+            <span class="bars"></span>
+            <span class="bars"></span>
+            <span class="bars"></span>
+        </div>
+    </header>
+    <div class="wrap">
+        <div class="wrap-header">
+            <div class="wrap-header-nav">
+                <div class="wrap-logo">
+                    <div class="logo-placement">
+                        <img src="/images/Group 3.png" alt="">
+                    </div>
+                </div>
+                <div class="wrap-nav">
+                    <ul>
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#issues"><li><i class="bi bi-file-earmark-medical"></i> Submit Issue</li></a>
+                        <a href="#" ><li><i class="bi bi-info-circle"></i> Help Center</li></a>
+                    </ul>
+                </div>
+            </div>
+            <div class="wrap-header-body">
+                <h1>Hello John Doe</h1>
+                <h2>Welcome To The Portal</h2>
+                <div class="links">
+                    <h4>Quick Links:</h4>
+                    <a href="#" class="change-pass" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Reset Password</a>
+                    <a href="#" class="update-profile" data-bs-toggle="modal" data-bs-target="#update">Update Profile</a>
+                    <a href="/logout">Log Out</a>
+                </div>
+            </div>
+            <!-- modal  -->
+        
+                
+                <!--Reset password Modal -->
+                <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Reset Password</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/password-reset" method="post">
+                                
+                                    <input type="text" hidden name="id" class="form-control"  value="">
+                                
+                                <div class="input-group mt-3">
+                                    <input type="password" class="form-control" name="old-password" placeholder="Old Password">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="password" class="form-control" name="new-password" placeholder="New Password">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="password" class="form-control"  name="password-confirm" placeholder="Confirm Password">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="submit" class="btn btn-primary"   value="Change Password">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Understoo</button> -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            <!-- end of modal  -->
+
+
+            <!-- update-profile modal  -->
+            <div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">update Profile</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/employee-update" method="post">
+                                
+                                    <input type="text" name="id" hidden class="form-control"value="">
+                               
+                                <div class="input-group mt-3">
+                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="text" name="phone" class="form-control" placeholder="phone Number">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="text" name="location" class="form-control" placeholder="Location">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="submit" class="btn btn-primary"  value="Update">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <!-- <button type="button" class="btn btn-primary">Understoo</button> -->
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            <!-- end of update-profile modal  -->
+
+
+            
+
+            <!-- submit issues  -->
+            <div class="container">
+            <div class="modal fade" id="issues" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Submit Issues</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="/submit-issue" method="post">
+                            
+                                <input type="text" name="id" hidden class="form-control"value="">
+                           
+                            <div class="input-group mt-3">
+                                <input type="text" name="type" class="form-control" placeholder="Issue Type">
+                            </div>
+                            <div class="input-group mt-3">
+                                <textarea name="description" id="" cols="30" rows="10" class="form-control" placeholder="describe your issues briefly"></textarea>
+                                
+                            </div>
+                            
+                            <div class="input-group mt-3">
+                                <input type="submit" class="btn btn-primary" placeholder="Old Password" >
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <!-- <button type="button" class="btn btn-primary">Understoo</button> -->
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+            <!-- end of submit issues  -->
+        </div>
+        <div class="wrap-body">
+            <div class="requests">
+                <form class="request-card" method="post" action="/requests">
+                    <input type="text" hidden name="id" value="">
+                    <input type="text" hidden name="empName" value="">
+                    <input type="text" hidden name="request-type" value="">
+                    <div class="request-card-header">
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <h4>Access Request</h4>
+                        <a href=""><i class="bi bi-send-check-fill"></i></a>
+                    </div>
+                    <div class="request-card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam beatae officia enim sequi velit explicabo ullam fugiat eaque atque aperiam vero minus, doloribus incidunt saepe earum placeat cumque suscipit nulla.</p>
+                    </div>
+                </form>
+                <form class="request-card" method="post" action="/requests">
+                    <input type="text" hidden name="id" value="">
+                    <input type="text" hidden name="empName" value="">
+                    <input type="text" hidden name="request-type" value="">
+
+                    <div class="request-card-header">
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <h4>collaboration tools</h4>
+                        <a href=""><i class="bi bi-send-check-fill"></i></a>
+                    </div>
+                    <div class="request-card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam beatae officia enim sequi velit explicabo ullam fugiat eaque atque aperiam vero minus, doloribus incidunt saepe earum placeat cumque suscipit nulla.</p>
+                    </div>
+                </form>
+                <form class="request-card" method="post" action="/requests">
+                    <input type="text" hidden name="id" value="">
+                    <input type="text" hidden name="empName" value="">
+                    <input type="text" hidden name="request-type" value="">
+                    
+                    <div class="request-card-header">
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <h4>Email Request</h4>
+                        <a href=""><i class="bi bi-send-check-fill"></i></a>
+                    </div>
+                    <div class="request-card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam beatae officia enim sequi velit explicabo ullam fugiat eaque atque aperiam vero minus, doloribus incidunt saepe earum placeat cumque suscipit nulla.</p>
+                    </div>
+                </form>
+                <form class="request-card" method="post" action="/requests">
+                    <input type="text" hidden name="id" value="">
+                    <input type="text" hidden name="empName" value="">
+                    <input type="text" hidden name="request-type" value="">
+                    <div class="request-card-header">
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <h4>Facility Request</h4>
+                        <a href=""><i class="bi bi-send-check-fill"></i></a>
+                    </div>
+                    <div class="request-card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam beatae officia enim sequi velit explicabo ullam fugiat eaque atque aperiam vero minus, doloribus incidunt saepe earum placeat cumque suscipit nulla.</p>
+                    </div>
+                </form>
+                <form class="request-card" method="post" action="/requests">
+                    <input type="text" hidden name="id" value="">
+                    <input type="text" hidden name="empName" value="">
+                    <input type="text" hidden name="request-type" value="">
+                    <div class="request-card-header">
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <h4>Leave Request</h4>
+                        <a href=""><i class="bi bi-send-check-fill"></i></a>
+                    </div>
+                    <div class="request-card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam beatae officia enim sequi velit explicabo ullam fugiat eaque atque aperiam vero minus, doloribus incidunt saepe earum placeat cumque suscipit nulla.</p>
+                    </div>
+                </form>
+                <form class="request-card" method="post" action="/requests">
+                    <input type="text" hidden name="id" value="">
+                    <input type="text" hidden name="empName" value="">
+                    <input type="text" hidden name="request-type" value="">
+                    <div class="request-card-header">
+                        <i class="bi bi-file-earmark-medical-fill"></i>
+                        <h4>IT staff Request</h4>
+                        <a href=""><i class="bi bi-send-check-fill"></i></a>
+                    </div>
+                    <div class="request-card-body">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam beatae officia enim sequi velit explicabo ullam fugiat eaque atque aperiam vero minus, doloribus incidunt saepe earum placeat cumque suscipit nulla.</p>
+                    </div>
+                </form>
+                <div class="wrap-footer">
+                    <div class="tasks">
+                        <h4><i class="bi bi-list-task"></i> My Tasks</h4>
+                        <div class="task-list">
+                            <div class="task-name">
+                                <h6>Design UI</h6>
+                            </div>
+                            <div class="task-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="complete">
+                                <button class="done">Done <i class="bi bi-check"></i></button>
+                            </div>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-name">
+                                <h6>Design UI</h6>
+                            </div>
+                            <div class="task-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="complete">
+                                <button class="done">Done <i class="bi bi-check"></i></button>
+                            </div>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-name">
+                                <h6>Design UI</h6>
+                            </div>
+                            <div class="task-description">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                            <div class="complete">
+                                <button class="done">Done <i class="bi bi-check"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="about">
+                        <h4><i class="bi bi-person-vcard-fill"></i> About</h4>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto beatae quaerat laborum cumque odio fugiat ratione, magnam, vero exercitationem totam iusto quasi nam hic voluptatum voluptas ab impedit tenetur aliquam!
+                        </p>
+                        <div class="personal-contacts">
+                            <h4><i class="bi bi-person-lines-fill"></i> Personal Contacts</h4>
+                            <div class="personal-info">
+                                <div class="info">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia ratione corporis recusandae. </p>
+                                </div>
+                                <div class="person">
+                                    <div class="social">
+                                        <a href="#" class="mobile"><i class="bi bi-linkedin"></i> Linked in</a>
+                                        <a href="#" class="mobile"><i class="bi bi-facebook"></i> Facebook</a>
+                                        <a href="#" class="mobile"><i class="bi bi-instagram"></i> Instaram</a>
+                                    </div>
+                                    <div class="contact-info">
+                                        <a href="#" class="mobile"><i class="bi bi-envelope-fill"></i> info@company.com</a>
+                                    </div>
+                                </div>
+                        </div>
+                  
+                    </div>
+                    </div>
+               
+                </div>
+            </div>          
+        </div>
+    </div>
+<!-- javascript files -->
+<%-include('./partials/footer.ejs')  %>
+</body>
+</html>

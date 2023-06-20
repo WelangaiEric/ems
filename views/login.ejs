@@ -1,0 +1,53 @@
+<%- include('./partials/header.ejs') %>
+
+<body>
+<%- include('./partials/nav.ejs') %>
+    
+    <div class="containerr">
+        
+         <form action="/login" method="post" class="login">
+            <div class="form-header">
+                <div class="form-logo">
+                    <div class="form-ems-logo">
+                        <img src="./images/Group 3.png" alt="">
+                    </div>
+                </div>
+                <h3>Welcome Back!</h3>
+            </div>
+            <div class="form-body">
+                <div class="input-group">
+                    <input type="email" name="email" class="form-control" placeholder="Your Email">
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" class="form-control" placeholder="Your Password">
+                </div>
+                <div class="input-group options">
+                    <div class="option1">
+                        <input type="checkbox"  id="check" checked>
+                        <label for="check"> Keep me Logged in</label>
+                    </div>
+                  
+                    <a href="">Forgot Password</a>
+                    
+                </div>
+                <div class="input-group">
+                    <input type="submit" class="form-control login-btn" value="Log In">
+                </div>
+                
+            </div>
+          
+        </form>
+        
+
+    </div>
+    
+
+
+
+
+
+<!-- javascript files -->
+<%- include('./partials/footer.ejs') %>
+
+</body>
+</html>
