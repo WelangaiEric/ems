@@ -1,9 +1,467 @@
 
-<%- include('./partials/header.ejs') %>
 
-<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/index.css">
+    <link href="/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/bootstrap.css.map">
+   
+    <title>EMS | <%- title%></title>
+</head>
+<body class="bg-grey">
+    <header class="bg-white">
+        <div class="brand">
+            <div class="logo">
+                <img src="/images/Group 3.png" alt="">
+            </div>
+        </div>
+        <div class="nav-links">
+            <ul>
+                <a href=""><li>Calender</li></a>
+                <a href=""><li>Employees</li></a>
+                <a href=""><li>My Approals</li></a>
+                <a href=""><li>Filed Issues</li></a>
+
+            </ul>
+        </div>
+        <div class="notifications">
+            <div class="icons"><i class="bi bi-bell text-grey"></i></div>
+            <div class="icons"><i class="bi bi-envelope text-grey"></i></div>
+            <div class="icons"><i class="bi bi-person-fill text-grey"></i></div>
+
+        </div>
+        
+    </header>
+
+    <div class="wrapper">
+        <div class="wrapper-header">
+            <h3 class="text-blue">Employees</h3>
+            <button class="btn bg-success text-white bold" data-bs-toggle="modal" data-bs-target="#salary"><i class="bi bi-cash text-white "></i> Salary Payment</button>
+            <button class="btn bg-primary text-white bold"data-bs-toggle="modal" data-bs-target="#deposit"><i class="bi bi-cash text-white"> </i>Deposit</button>
+
+
+
+  
+                <!--salary Modal -->
+                <div class="modal fade" id="salary" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                        ...
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Understood</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <!-- deposit modal -->
+                <div class="modal fade" id="deposit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-blue text">
+                        <h5 class="modal-title" id="staticBackdropLabel">Deposit Money</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="/send" method="post">
+                                <div class="input-group mt-3">
+                                    <input type="number" class="form-control" name="phone" placeholder="Phone Number">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="number" class="form-control" name="Amount" placeholder="Amount">
+                                </div>
+                                <div class="input-group mt-3">
+                                    <input type="submit" class="form-control btn btn-primary"  value="Deposit">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+
+            <!-- Button trigger modal -->
+            <button class="btn bg-blue text-white" data-bs-toggle="modal" data-bs-target="#add-employee"><i class="bi bi-plus"></i> New Employee</button>
+            <!-- Modal -->
+                <div class="modal fade" id="add-employee" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-blue text-white">
+                        <h5 class="modal-title" id="staticBackdropLabel">Add Employee</h5>
+                        <button type="button" class="btn-close bg-white text-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="" method="post">
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="firstName" placeholder="First Name" required >
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control" name="lastName" placeholder="Last Name" required >
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required >
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" class="form-control" name="phone" placeholder="Phone" required >
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <select class="form-select" name="employeeType" aria-label="Default select example" required>
+                                            
+                                            <option selected value="Fulltime">Fulltime</option>
+                                            <option value="PartTime">PartTime</option>
+                                            
+                                          </select>
+                                    </div>
+                                    <div class="col">
+                                        <select class="form-select" name="employeeStatus" aria-label="Default select example" required>
+                                            
+                                            <option selected value="worker">Worker</option>
+                                            <option value="test period">Test period</option>
+                                            
+                                          </select>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col">
+                                        <input type="number" class="form-control" name="salary" placeholder="Salary" required >
+                                    </div>
+                                    <div class="col">
+                                        <input type="date" class="form-control" name="date" placeholder="Employment Date" required >
+                                    </div>
+                                </div>
+                                <div class="input-group mt-3 hover">
+                                    <input type="submit" class="btn form-control bg-blue text-white" value="Submit">
+                                </div>
+                            </form>
+                       
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <!--  end of modal -->
+
+        </div>
+        <div class="wrapper-body mt-3">
+            <div class="task-manager  bg-white text-blue">
+
+
+            </div>
+            <div class="employee-manager text-blue">
+                <table>
+                    <thead >
+                        <th class="text-blue "><i class="bi bi-person-fill text-grey"></i> Employee</th>
+                        <th class="text-blue "><i class="bi bi-cash text-grey"></i> salary</th>
+                        <th class="text-blue "><i class="bi bi-person-check text-grey"></i> Status</th>
+                        <th class="text-blue"><i class="bi bi-people-fill text-grey"></i> Manage</th>
+
+
+                    </thead>
+                    <tbody class="mt-2">
+                        <tr class="bg-white">
+                            <td>
+                                <p class="text-blue font-mid">John Doe</p>
+                                <p class="auxiliary">Software Engineer</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">Ksh.500000</p>
+                                <p class="auxiliary">Fulltime</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">test period</p>
+                                <p class="auxiliary">1.5 months</p>
+                            </td>
+                            <td class="action">
+                                <a href=""  class="center" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen-fill text-blue"></i></a>
+                                <a href="" class="center"><i class="bi bi-trash-fill text-blue"></i></a>                              
+                                 <!-- update modal -->
+                                 <div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Update User</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" method="post">
+                                                
+                                                    <input type="text" hidden name="id" class="form-control"  value="">
+                                                
+                                                <div class="input-group mt-3">
+                                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="email" class="form-control" name="email" placeholder="email" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="text" class="form-control"  name="location" placeholder="Location" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="submit" class="btn btn-primary"  value="Update">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <!-- <button type="button" class="btn btn-primary">Understoo</button> -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- end of update modal  -->
+                            </td>
+
+                        </tr>
+                        <tr class="bg-white">
+                            <td>
+                                <p class="text-blue font-mid">John Doe</p>
+                                <p class="auxiliary">Software Engineer</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">Ksh.500000</p>
+                                <p class="auxiliary">Fulltime</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">test period</p>
+                                <p class="auxiliary">1.5 months</p>
+                            </td>
+                            <td class="action">
+                                <a href=""  class="center" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen-fill text-blue"></i></a>
+                                <a href="" class="center"><i class="bi bi-trash-fill text-blue"></i></a>                              
+                                 <!-- update modal -->
+                                 <div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Update User</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" method="post">
+                                                
+                                                    <input type="text" hidden name="id" class="form-control"  value="">
+                                                
+                                                <div class="input-group mt-3">
+                                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="email" class="form-control" name="email" placeholder="email" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="text" class="form-control"  name="location" placeholder="Location" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="submit" class="btn btn-primary"  value="Update">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <!-- <button type="button" class="btn btn-primary">Understoo</button> -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- end of update modal  -->
+                            </td>
+
+                        </tr>
+                        <tr class="bg-white">
+                            <td>
+                                <p class="text-blue font-mid">John Doe</p>
+                                <p class="auxiliary">Software Engineer</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">Ksh.500000</p>
+                                <p class="auxiliary">Fulltime</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">test period</p>
+                                <p class="auxiliary">1.5 months</p>
+                            </td>
+                            <td class="action">
+                                <a href=""  class="center" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen-fill text-blue"></i></a>
+                                <a href="" class="center"><i class="bi bi-trash-fill text-blue"></i></a>                              
+                                 <!-- update modal -->
+                                 <div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Update User</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" method="post">
+                                                
+                                                    <input type="text" hidden name="id" class="form-control"  value="">
+                                                
+                                                <div class="input-group mt-3">
+                                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="email" class="form-control" name="email" placeholder="email" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="text" class="form-control"  name="location" placeholder="Location" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="submit" class="btn btn-primary"  value="Update">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <!-- <button type="button" class="btn btn-primary">Understoo</button> -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- end of update modal  -->
+                            </td>
+
+                        </tr>
+                        <tr class="bg-white">
+                            <td>
+                                <p class="text-blue font-mid">John Doe</p>
+                                <p class="auxiliary">Software Engineer</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">Ksh.500000</p>
+                                <p class="auxiliary">Fulltime</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">test period</p>
+                                <p class="auxiliary">1.5 months</p>
+                            </td>
+                            <td class="action">
+                                <a href=""  class="center" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen-fill text-blue"></i></a>
+                                <a href="" class="center"><i class="bi bi-trash-fill text-blue"></i></a>                              
+                                 <!-- update modal -->
+                                 <div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Update User</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" method="post">
+                                                
+                                                    <input type="text" hidden name="id" class="form-control"  value="">
+                                                
+                                                <div class="input-group mt-3">
+                                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="email" class="form-control" name="email" placeholder="email" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="text" class="form-control"  name="location" placeholder="Location" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="submit" class="btn btn-primary"  value="Update">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <!-- <button type="button" class="btn btn-primary">Understoo</button> -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- end of update modal  -->
+                            </td>
+
+                        </tr>
+                        <tr class="bg-white">
+                            <td>
+                                <p class="text-blue font-mid">John Doe</p>
+                                <p class="auxiliary">Software Engineer</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">Ksh.500000</p>
+                                <p class="auxiliary">Fulltime</p>
+                            </td>
+                            <td>
+                                <p class="text-blue font-mid">test period</p>
+                                <p class="auxiliary">1.5 months</p>
+                            </td>
+                            <td class="action">
+                                <a href=""  class="center" data-bs-toggle="modal" data-bs-target="#update"><i class="bi bi-pen-fill text-blue"></i></a>
+                                <a href="" class="center"><i class="bi bi-trash-fill text-blue"></i></a>                              
+                                 <!-- update modal -->
+                                 <div class="modal fade" id="update" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="staticBackdropLabel">Update User</h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" method="post">
+                                                
+                                                    <input type="text" hidden name="id" class="form-control"  value="">
+                                                
+                                                <div class="input-group mt-3">
+                                                    <input type="number" class="form-control" name="phone" placeholder="Phone" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="email" class="form-control" name="email" placeholder="email" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="text" class="form-control"  name="location" placeholder="Location" required>
+                                                </div>
+                                                <div class="input-group mt-3">
+                                                    <input type="submit" class="btn btn-primary"  value="Update">
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <!-- <button type="button" class="btn btn-primary">Understoo</button> -->
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <!-- end of update modal  -->
+                            </td>
+
+                        </tr>
+                    </tbody>
+                   
+                </table>
     
-
+            </div>
+        </div>
+        
+    </div>
+    
 
 
 
