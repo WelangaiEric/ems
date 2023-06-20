@@ -68,7 +68,7 @@ router.post('/send',generateToken, async (req,res)=>{
 
     ).then((result)=>{
         console.log(result.data)
-        res.send((result.data))
+        
         res.render('admin',{title:'admin portal'})
     }).catch((err)=>{
         console.log(err)
